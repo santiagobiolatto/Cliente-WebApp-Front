@@ -9,11 +9,14 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { ClienteService } from './clientes/cliente.service';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './clientes/form.component';
+import { FormsModule } from '@angular/forms';
 
 const ROUTES: Routes = [
   {path: '', redirectTo: '/clientes', pathMatch: 'full'},
   {path: 'clientes', component: ClientesComponent},
-  {path: 'body', component: BodyComponent}
+  {path: 'body', component: BodyComponent},
+  {path: 'clientes/form', component: FormComponent}
 ];
 
 
@@ -23,12 +26,14 @@ const ROUTES: Routes = [
     HeaderComponent,
     BodyComponent,
     FooterComponent,
-    ClientesComponent
+    ClientesComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent]
