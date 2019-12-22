@@ -28,7 +28,7 @@ export class FormComponent implements OnInit {
       );
   }
 
-  cargarCliente(): void{
+  cargarCliente(): void {
     this.activatedRoute.params.subscribe(
       params => {
         let id = params['id'];
