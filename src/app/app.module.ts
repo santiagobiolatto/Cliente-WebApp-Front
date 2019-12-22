@@ -17,6 +17,7 @@ const ROUTES: Routes = [
   {path: 'clientes', component: ClientesComponent},
   {path: 'body', component: BodyComponent},
   {path: 'clientes/form', component: FormComponent},
+  // id esta como un parametro, por eso en el metodo activeRouter lo asigno asi
   {path: 'clientes/form/:id', component: FormComponent}
 ];
 

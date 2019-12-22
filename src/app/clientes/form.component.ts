@@ -13,31 +13,41 @@ export class FormComponent implements OnInit {
 
   private cliente: Cliente = new Cliente();
 
-  constructor(private clienteservice: ClienteService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private clienteService: ClienteService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.cargarCliente();
   }
 
+  // router.navigate es una redireccion
   public create(): void {
-    this.clienteservice.create(this.cliente).subscribe(
+    this.clienteService.create(this.cliente).subscribe(
       response => {
         this.router.navigate(['/clientes']);
-        Swal.fire('Nuevo cliente creado', `Cliente ${this.cliente.nombre} creado!`, 'success');
+        Swal.fire('Cliente creado con exito', `El cliente ${this.cliente.nombre} ha sido creado exitosamente!`, 'success');
       }
       );
   }
 
-  cargarCliente(): void {
+  public cargarCliente(): void {
     this.activatedRoute.params.subscribe(
       params => {
         let id = params['id'];
         if (id) {
-          this.clienteservice.getCliente(id).subscribe( (cliente) => this.cliente = cliente);
+          this.clienteService.getCliente(id).subscribe( (cliente) => this.cliente = cliente);
         }
       }
     );
   }
+
+  public update(): void {
+    this.clienteService.update(this.cliente).subscribe(
+      response => {
+        this.router.navigate(['/clientes']);
+        Swal.fire('Cliente actualizado con exito', `El cliente ${this.cliente.nombre} ha sido actualizado exitosamente`, 'success');
+      });
+  }
+
 
 
 }
