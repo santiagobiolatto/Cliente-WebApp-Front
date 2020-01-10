@@ -1,6 +1,6 @@
-# ClientesApp
+# Cliente-WebApp-Front
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+Proyecto creado en angular CLI version 8.3.20, para usarse en conjunto con la API rest https://github.com/VelzST/Cliente-Webapp-Back
 
 ## Development server
 
